@@ -1,0 +1,11 @@
+CacheSolve <- function(y, ...) {
+      m <- y$getinverse()
+      if(!is.null(m)) {
+            message("getting cached data")
+            return(m)
+      }
+      data <- y$get()
+      m <- solve(data, ...)
+      y$setinverse(m)
+      m
+}
